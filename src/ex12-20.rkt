@@ -7,6 +7,8 @@
 
   string-first
   string-last
+
+  ==>
 )
 
 ;ex 12
@@ -33,3 +35,10 @@
     (string-length str))
 
   (substring str (- last-i 1) last-i))
+
+;ex 15
+;Define ==>. The function consumes two Boolean values, call them sunny and friday. Its answer is #true if sunny is false or friday is true. Note Logicians call this Boolean operation implication, and they use the notation sunny => friday for this purpose
+(define (==> sunny friday)
+  (define first-predicate (eq? sunny #false))
+  (define second-predicate (eq? friday #true))
+  (or first-predicate second-predicate))
