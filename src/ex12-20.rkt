@@ -11,8 +11,10 @@
          ==>
 
          image-area
-         image-classify)
+         image-classify
+
         string-join
+        string-insert)
 
 ;ex 12
 (define (cvolume x)
@@ -66,3 +68,10 @@
     str1
     "_"
     str2))
+
+;ex 19
+(define (string-insert str i)
+  (string-append
+    (substring str 0 (- i 1))
+    "_"
+    (substring str i (string-length str))))

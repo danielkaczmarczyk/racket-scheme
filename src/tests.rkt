@@ -29,4 +29,7 @@
 (rocket-test image-classify "image-classify" (list (make-img 5 5)) "square")
 
 (rocket-test string-join "string-join" (list "daniel" "k") "daniel_k")
+(rocket-test string-insert "string-insert" (list "daniel" 2) "d_niel")
+(rocket-test string-insert "string-insert" (list "daniel" 3) "da_iel")
+
 (print-tests-footer)
