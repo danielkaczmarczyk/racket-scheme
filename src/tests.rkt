@@ -6,4 +6,4 @@
 ;ex 12
 (require "./ex12.rkt")
 
-(rocket-test cvolume 3 27)
+(rocket-test cvolume "cvolume" 3 27)
