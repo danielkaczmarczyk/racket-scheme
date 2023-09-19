@@ -6,6 +6,7 @@
   csurface
 
   string-first
+  string-last
 )
 
 ;ex 12
@@ -26,3 +27,9 @@
     ""
     (substring str 0 1)))
 
+;ex 14
+(define (string-last str)
+  (define last-i
+    (string-length str))
+
+  (substring str (- last-i 1) last-i))
