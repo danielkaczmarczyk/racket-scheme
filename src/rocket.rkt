@@ -29,19 +29,12 @@
     [(string? a) (string=? a b)]
     [(number? a) (= a b)]))
 
-(define (rocket-test fn fn-name input expected [should-fail #f])
+; main test function
+(define (rocket-test fn fn-name input expected)
   (define result (fn input))
   (define result-vs-expected (compare-things result expected))
-  (define result-accounted-for-failure
-    (if should-fail
-      (eq? #t (eq? result-vs-expected #f))
-      result-vs-expected))
 
   (if
-    result-accounted-for-failure
+    result-vs-expected
     (displayln (generate-test-message "PASS" fn-name input result expected))
     (displayln (generate-test-message "FAIL" fn-name input result expected))))
-
-
-;(define (rocket-suite))
-
