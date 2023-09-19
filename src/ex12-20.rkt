@@ -1,13 +1,17 @@
 #lang racket
 
-; accepts the length of a side of an equilateral cube and computes its volume. If you have time, consider defining csurface, too.
+(require 2htdp/image)
+
 (provide cvolume
          csurface
 
          string-first
          string-last
 
-         ==>)
+         ==>
+
+         image-area
+         )
 
 ;ex 12
 (define (cvolume x)
@@ -37,3 +41,9 @@
   (define first-predicate (eq? sunny #false))
   (define second-predicate (eq? friday #true))
   (or first-predicate second-predicate))
+
+;ex 16
+(define (image-area image)
+  (define width (image-width image))
+  (define height (image-height image))
+  (* height width))

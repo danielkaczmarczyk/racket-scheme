@@ -7,7 +7,7 @@
 (background-color 'black)
 (foreground-color 'green)
 
-(provide rocket-test print-tests-header)
+(provide rocket-test print-tests-header print-tests-footer)
 
 ; TODO return the string from color-display instead of the function evaluation
 ; cause it seems to be printing #<void>. I need the value not side effect
@@ -21,6 +21,9 @@
 
 (define (print-tests-header)
   (print-message "TESTS" "-"))
+
+(define (print-tests-footer)
+  (print-message "END" "-"))
 
 (define (stringify atom)
   (cond

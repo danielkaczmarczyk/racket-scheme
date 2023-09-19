@@ -2,6 +2,7 @@
 
 (require "./rocket.rkt") ; testing framework
 (require "./utils.rkt") ; various utilities
+(require "./images.rkt") ; for make-image
 
 ;ex 12-20
 (require "./ex12-20.rkt")
@@ -21,3 +22,7 @@
 (rocket-test ==> "==>" (list #true #true) #true)
 (rocket-test ==> "==>" (list #false #true) #true)
 (rocket-test ==> "==>" (list #true #false) #false)
+
+(rocket-test image-area "image-area" (list make-img) 100)
+
+(print-tests-footer)

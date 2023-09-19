@@ -14,6 +14,7 @@
                  (lambda () (system "tput cols"))))))
 
 (define (print-message message char)
+  (display "\n")
   (define width (get-terminal-width))
   (define message-len (string-length message))
   ; space, char * n, space, message, space, char * n, space
