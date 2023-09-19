@@ -10,8 +10,7 @@
 
          ==>
 
-         image-area
-         )
+         image-area)
 
 ;ex 12
 (define (cvolume x)

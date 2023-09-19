@@ -1,8 +1,10 @@
 #lang racket
 
-(provide clear-screen print-message)
+(provide clear-screen
+         print-message)
 
-(define (clear-screen) (void (system "clear")))
+(define (clear-screen)
+  (void (system "clear")))
 (define SPACE " ")
 
 ; TODO this may not be necessary to use string-ref. check it out later
@@ -10,8 +12,7 @@
   (display (make-string n (string-ref char 0))))
 
 (define (get-terminal-width)
-  (string->number (string-trim (with-output-to-string
-                 (lambda () (system "tput cols"))))))
+  (string->number (string-trim (with-output-to-string (lambda () (system "tput cols"))))))
 
 (define (print-message message char)
   (display "\n")
@@ -31,4 +32,3 @@
   (display SPACE)
   (display "\n")
   (display "\n"))
-
