@@ -12,6 +12,7 @@
 
          image-area
          image-classify)
+        string-join
 
 ;ex 12
 (define (cvolume x)
@@ -59,3 +60,9 @@
       "wide"
       "tall")))
 
+;ex 18
+(define (string-join str1 str2)
+  (string-append
+    str1
+    "_"
+    str2))

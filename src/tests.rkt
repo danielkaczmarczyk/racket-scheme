@@ -28,4 +28,5 @@
 (rocket-test image-classify "image-classify" (list (make-img 20 5)) "wide")
 (rocket-test image-classify "image-classify" (list (make-img 5 5)) "square")
 
+(rocket-test string-join "string-join" (list "daniel" "k") "daniel_k")
 (print-tests-footer)
