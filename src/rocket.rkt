@@ -17,9 +17,9 @@
 
   (string-append 
     (string-append
-      prefix ": " fn_name " called with " (stringify input) " produced " (stringify output))
+      prefix ": " fn_name " called with: " (stringify input) " produced: " (stringify output))
     (if (eq? prefix "FAIL")
-      (" expected: " (stringify expected))
+      (string-append " expected: " (stringify expected))
       "")))
 
 (define (rocket-test fn fn_name input expected)
