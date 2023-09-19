@@ -10,7 +10,8 @@
 
          ==>
 
-         image-area)
+         image-area
+         image-classify)
 
 ;ex 12
 (define (cvolume x)
@@ -46,3 +47,15 @@
   (define width (image-width image))
   (define height (image-height image))
   (* height width))
+
+;ex 17
+(define (image-classify image)
+  (define width (image-width image))
+  (define height (image-height image))
+
+  (if (eq? width height)
+    "square"
+    (if (> width height)
+      "wide"
+      "tall")))
+

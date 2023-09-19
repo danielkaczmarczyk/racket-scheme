@@ -4,4 +4,8 @@
 
 (provide make-img)
 
-(define make-img (rectangle 5 20 "solid" "blue"))
+(define (make-rectangle w h)
+  (rectangle w h "solid" "blue"))
+
+(define (make-img w h)
+  (make-rectangle w h))

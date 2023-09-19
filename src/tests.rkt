@@ -23,6 +23,9 @@
 (rocket-test ==> "==>" (list #false #true) #true)
 (rocket-test ==> "==>" (list #true #false) #false)
 
-(rocket-test image-area "image-area" (list make-img) 100)
+(rocket-test image-area "image-area" (list (make-img 20 5)) 100)
+(rocket-test image-classify "image-classify" (list (make-img 5 20)) "tall")
+(rocket-test image-classify "image-classify" (list (make-img 20 5)) "wide")
+(rocket-test image-classify "image-classify" (list (make-img 5 5)) "square")
 
 (print-tests-footer)
