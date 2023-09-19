@@ -1,13 +1,13 @@
 #lang racket
 
-;import testing framework
-(require "./rocket.rkt")
+(require "./rocket.rkt") ; testing framework
+(require "./utils.rkt") ; various utilities
 
 ;ex 12-20
 (require "./ex12-20.rkt")
 
-
-(displayln " ------------------------------------------ TESTS --------------------------------------")
+(clear-screen)
+(print-tests-header)
 
 (rocket-test cvolume "cvolume" (list 3) 27)
 (rocket-test csurface "csurface" (list 3) 18)
