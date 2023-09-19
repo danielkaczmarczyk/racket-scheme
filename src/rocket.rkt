@@ -17,16 +17,23 @@
 
   (string-append 
     (string-append
-      prefix ": " fn_name " called with: " (stringify input) " produced: " (stringify output))
+      prefix ": " fn_name " called with: " (stringify input) " produced: `" (stringify output)) "`"
     (if (eq? prefix "FAIL")
-      (string-append " expected: " (stringify expected))
+      (string-append " expected: `" (stringify expected) "`")
       "")))
+
+; assumes type of a and b are the same
+; TODO update to handle a situation when this isn't true
+(define (compare-things a b)
+  (cond
+    [(string? a) (string=? a b)]
+    [(number? a) (= a b)]))
 
 (define (rocket-test fn fn_name input expected)
   (define result (fn input))
 
   (if
-    (eq?
+    (compare-things
       result
       expected)
     (displayln (generate-test-message "PASS" fn_name input result expected))
