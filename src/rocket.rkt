@@ -1,7 +1,22 @@
 ; rocket - a racket testing framework
 #lang racket
 
+(require ansi-color)
+(background-color 'black)
+(foreground-color 'green)
+
 (provide rocket-test)
+
+; TODO return the string from color-display instead of the function evaluation
+; cause it seems to be printing #<void>. I need the value not side effect
+; seems like it's working just luckily
+(define (colorize-status status)
+  (if
+    (string=? status "PASS")
+    (color-display status)
+    (parameterize ([foreground-color 'red])
+                 (color-display status))))
+
 
 (define (stringify atom)
   (cond
@@ -10,7 +25,7 @@
 
 (define (generate-test-message status fn-name inputs result expected)
   (format "~a: function `~a` with inputs ~a produced ~a, expected ~a"
-          status fn-name inputs result expected))
+          (colorize-status status) fn-name inputs result expected))
 
 ; assumes type of a and b are the same
 ; TODO update to handle a situation when this isn't true
@@ -24,7 +39,7 @@
   (define result 
     (if (= 1 (length inputs))
       (fn (car inputs))
-      (fn (apply inputs))))
+      (apply fn inputs)))
   (define result-vs-expected (compare-things result expected))
 
   (if result-vs-expected
