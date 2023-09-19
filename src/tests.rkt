@@ -8,5 +8,5 @@
 
 (rocket-test cvolume "cvolume" 3 27)
 (rocket-test csurface "csurface" 3 18)
-(rocket-test csurface "csurface" 3 19 #t)
 (rocket-test string-first "string-first" "daniel" "d")
+(rocket-test string-last "string-last" "daniel" "l")
