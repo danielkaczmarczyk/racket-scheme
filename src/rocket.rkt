@@ -1,11 +1,13 @@
 ; rocket - a racket testing framework
 #lang racket
 
+(require "./utils.rkt")
+
 (require ansi-color)
 (background-color 'black)
 (foreground-color 'green)
 
-(provide rocket-test)
+(provide rocket-test print-tests-header)
 
 ; TODO return the string from color-display instead of the function evaluation
 ; cause it seems to be printing #<void>. I need the value not side effect
@@ -17,6 +19,8 @@
     (parameterize ([foreground-color 'red])
                  (color-display status))))
 
+(define (print-tests-header)
+  (print-message "TESTS" "-"))
 
 (define (stringify atom)
   (cond
