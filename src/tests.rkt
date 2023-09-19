@@ -31,5 +31,8 @@
 (rocket-test string-join "string-join" (list "daniel" "k") "daniel_k")
 (rocket-test string-insert "string-insert" (list "daniel" 2) "d_niel")
 (rocket-test string-insert "string-insert" (list "daniel" 3) "da_iel")
+(rocket-test string-delete "string-delete" (list "daniel" 1) "aniel")
+(rocket-test string-delete "string-delete" (list "daniel" 5) "danil")
+(rocket-test string-delete "string-delete" (list "daniel" 6) "danie")
 
 (print-tests-footer)

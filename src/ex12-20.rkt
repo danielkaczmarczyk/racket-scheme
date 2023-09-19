@@ -14,7 +14,8 @@
          image-classify
 
         string-join
-        string-insert)
+        string-insert
+        string-delete)
 
 ;ex 12
 (define (cvolume x)
@@ -70,8 +71,19 @@
     str2))
 
 ;ex 19
+;TODO handle empty string
+;TODO handle out-of bounds i
 (define (string-insert str i)
   (string-append
     (substring str 0 (- i 1))
     "_"
     (substring str i (string-length str))))
+
+;ex 20
+;TODO handle empty string
+;TODO handle out-of bounds i
+(define (string-delete str i)
+  (string-append
+    (substring str 0 (- i 1))
+    (substring str i (string-length str))))
+
