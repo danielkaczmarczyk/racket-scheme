@@ -13,8 +13,9 @@
           fn_name
           input
           output
-          expected)
-
+          expected
+          should-fail
+          )
   (string-append 
     (string-append
       prefix ": " fn_name " called with: " (stringify input) " produced: `" (stringify output)) "`"
@@ -29,15 +30,18 @@
     [(string? a) (string=? a b)]
     [(number? a) (= a b)]))
 
-(define (rocket-test fn fn_name input expected)
+(define (rocket-test fn fn-name input expected [should-fail #f])
   (define result (fn input))
+  (define result-vs-expected (compare-things result expected))
+  (define result-accounted-for-failure
+    (if should-fail
+      (eq? #t (eq? result-vs-expected #f))
+      result-vs-expected))
 
   (if
-    (compare-things
-      result
-      expected)
-    (displayln (generate-test-message "PASS" fn_name input result expected))
-    (displayln (generate-test-message "FAIL" fn_name input result expected))))
+    result-accounted-for-failure
+    (displayln (generate-test-message "PASS" fn-name input result expected should-fail))
+    (displayln (generate-test-message "FAIL" fn-name input result expected should-fail))))
 
 
 ;(define (rocket-suite))
