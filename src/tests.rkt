@@ -3,6 +3,7 @@
 (require "./rocket.rkt") ; testing framework
 (require "./utils.rkt") ; various utilities
 (require "./images.rkt") ; for make-image
+(require "./tickets.rkt") ; for ticket-related assignments (chapter I)
 
 ;ex 12-20
 (require "./ex12-20.rkt")
